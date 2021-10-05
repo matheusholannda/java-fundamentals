@@ -1,42 +1,102 @@
 package Produto;
 
+import java.util.Scanner;
+
 public class ProdutoTester {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Produto produto = new Produto(1, "Lápis",2,9.77);
-		System.out.println(produto);
-		
-		Produto produto2 = new Produto(2, "Borracha",5,1.5);
-		System.out.println(produto2);
-		
-		Produto produto3 = new Produto();
-		produto3.setProdutoId(3);
-		produto3.setNomeProduto("Caneta");
-		produto3.setQtdProduto(20);
-		produto3.setPreco(0.5);
-		System.out.println(produto3);
-		
-		Produto produto4 = new Produto();
-		produto4.setProdutoId(4);
-		produto4.setNomeProduto("Apontador");
-		produto4.setQtdProduto(5);
-		produto4.setPreco(5);
-		System.out.println(produto4);
-		
-		Produto produto5 = new Produto();
-		produto5.setProdutoId(5);
-		produto5.setNomeProduto("Marca Texto");
-		produto5.setQtdProduto(10);
-		produto5.setPreco(1);
-		System.out.println(produto5);
-		
-		Produto produto6 = new Produto();
-		produto6.setProdutoId(6);
-		produto6.setNomeProduto("Lapiseira");
-		produto6.setQtdProduto(8);
-		produto6.setPreco(4);
-		System.out.println(produto6);
+
+		// Instância de um novo produto
+		Produto cd = new Produto();
+
+		// Setando valores para as variáveis do produto
+		cd.setNumeroItem(1);
+		cd.setNomeProduto("Greatest Hits");
+		cd.setQuantidadeEstoque(25);
+		cd.setPrecoUnitario(9.99);
+
+		// Instância de um novo produto
+		Produto caderno = new Produto();
+
+		// Setando valores para as variáveis do produto
+		caderno.setNumeroItem(2);
+		caderno.setNomeProduto("Caderno de caligrafia");
+		caderno.setQuantidadeEstoque(32);
+		caderno.setPrecoUnitario(15.50);
+
+		// Instanciando novos produtos com parâmetros passados no construtos
+		Produto dvd = new Produto(3, "Beatles - Live in New York", 5, 25.50);
+		Produto discoVinil = new Produto(4, "The darkside of the moon", 100, 4.50);
+		Produto CDLinux = new Produto(5, "CD Linux Debian", 20, 1.00);
+		Produto CDWindows = new Produto(6, "CD Windows 10", 85, 250.49);
+		CDWindows.setAtivo(false); // setando o produto para "Descontinuado"
+
+		// Variável que irá solicitar entrada de dados via teclado
+		Scanner sc = new Scanner(System.in);
+
+		// variáveis temporárias para receber os valores digitados do produto
+		int tempNumber;
+		String tempName;
+		int tempQty;
+		double tempPrice;
+
+		/*
+		 * CADASTRO p1
+		 */
+		System.out.println("[CADASTRO p1]");
+
+		// Solicitando entrada de dados do usuário que irá armazenar em cada variável
+		System.out.print("Digite o número do produto: ");
+		tempNumber = sc.nextInt();
+
+		System.out.print("Digite o nome do produto: ");
+		tempName = sc.next();
+
+		System.out.print("Digite a quantidade de produtos em estoque: ");
+		tempQty = sc.nextInt();
+
+		System.out.print("Digite o valor unitário do produto: ");
+		tempPrice = sc.nextDouble();
+
+		// Instancia de Produto passando os parâmetros digitados pelo usuário para o
+		// construtor
+		Produto p1 = new Produto(tempNumber, tempName, tempQty, tempPrice);
+		System.out.println();
+		// FIM CADASTRO p1
+
+		/*
+		 * CADASTRO p2
+		 */
+		System.out.println("[CADASTRO p2]");
+		// Solicitando entrada de dados do usuário que irá armazenar em cada variável
+		System.out.print("Digite o número do produto: ");
+		tempNumber = sc.nextInt();
+
+		System.out.print("Digite o nome do produto: ");
+		tempName = sc.next();
+
+		System.out.print("Digite a quantidade de produtos em estoque: ");
+		tempQty = sc.nextInt();
+
+		System.out.print("Digite o valor unitário do produto: ");
+		tempPrice = sc.nextDouble();
+
+		sc.close();
+
+		// Instancia de Produto passando os parâmetros digitados pelo usuário para o
+		// construtor
+		Produto p2 = new Produto(tempNumber, tempName, tempQty, tempPrice);
+		// FIM CADASTRO p2
+
+		// saída dos valores do produto informado no console
+		System.out.println();
+		System.out.println(cd);
+		System.out.println(dvd);
+		System.out.println(discoVinil);
+		System.out.println(CDLinux);
+		System.out.println(CDWindows);
+		System.out.println(p1);
+		System.out.println(p2);
 	}
 
 }
